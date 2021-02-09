@@ -4,7 +4,6 @@ class App extends Component {
   render() {
     return (
       <div >
-        <ol></ol>
       </div>
     );
   }
