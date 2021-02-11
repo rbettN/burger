@@ -7,10 +7,10 @@ class BurgerBuilder extends Component {
     state = {
         /*The properties of this 'ingredients' object must match the 'props.type' that is checked in 'BurgerIngredient.js'*/
         ingredients: {
-            salad: 1,
-            bacon: 1,
-            cheese: 2,
-            meat: 2
+            salad: 0,
+            bacon: 0,
+            cheese: 0,
+            meat: 0
         }
     }
 
