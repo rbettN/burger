@@ -3,7 +3,7 @@ import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = (props) => {
-    /*A default JavaScript object. The 'keys' methods extracts the keys of a given object and turns it into an array*/
+    /*A default JavaScript object. The 'keys' methods extracts the keys of a given object and turns them into an array (array of keys)*/
     let transformedIngredients = Object.keys(props.ingredients)
         .map(ingredientKey => {
             return [...Array(props.ingredients[ingredientKey])]
