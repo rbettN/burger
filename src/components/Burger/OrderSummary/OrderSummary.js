@@ -1,5 +1,6 @@
 import React from 'react';
 import Auxiliary from '../../../highordercomponents/Auxiliary';
+import Button from '../../UI/Button/Button';
 
 
 const orderSummary = (props) => {
@@ -18,9 +19,10 @@ const orderSummary = (props) => {
             <ul>
                 {ingredientsSummary}
             </ul>
+            <p><strong>Total Price: ${props.price.toFixed(2)} CAD</strong></p>
             <p>Continue to Checkout?</p>
-            <button>Cancel</button>
-            <button>Continue</button>
+            <Button buttonType="Danger" clicked={props.purchaseCancelled}>Cancel</Button>
+            <Button buttonType="Danger" clicked={props.purchaseContinued}>Contiune</Button>
         </Auxiliary>
     );
 };
