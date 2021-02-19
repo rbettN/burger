@@ -1,3 +1,8 @@
+/**
+ * Component: Summary of the order (press Order Now)
+ * This component is imported in the BurgerBuilder.
+ */
+
 import React from 'react';
 import Auxiliary from '../../../highordercomponents/Auxiliary';
 import Button from '../../UI/Button/Button';

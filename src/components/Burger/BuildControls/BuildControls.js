@@ -1,3 +1,8 @@
+/**
+ * Component: Controls for the ingredients.
+ * This component is imported in the BurgerBuilder.
+ */
+
 import React from 'react';
 import classes from './BuildControls.css';
 import BuildControl from './BuildControl/BuildControl';
@@ -25,7 +30,6 @@ const buildControls = (props) => (
             disabled={!props.purchasable}
             onClick={props.ordered}>ORDER NOW</button>
     </div>
-
 );
 
 export default buildControls;

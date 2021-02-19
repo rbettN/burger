@@ -1,3 +1,8 @@
+/**
+ * Component: Creates and presents the burger based on the ingredients selected. 
+ * This component is imported in the BurgerBuilder.
+ */
+
 import React from 'react';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
