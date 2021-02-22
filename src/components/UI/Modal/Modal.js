@@ -1,3 +1,8 @@
+/**
+ * This component is userd by Order Summary after a user clicks on "Order Now"
+ * This component is imported in the BurgerBuilder.
+ */
+
 import React from 'react';
 import classes from './Modal.css';
 import Auxiliary from '../../../highordercomponents/Auxiliary';

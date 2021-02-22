@@ -1,3 +1,8 @@
+/**
+ * This component allows mobile users to user the "Burger Builder" and the "Checkout" menu.
+ * This component is imported in the Layout component.
+ **/
+
 import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';

@@ -1,3 +1,9 @@
+/**
+ * This base NavigationItem component serves for the "Burger Builder" and the "Checkout"
+ * menu options in the toolbar.
+ * This component is imported in the NavigationItems.
+ **/
+
 import React from 'react';
 import classes from './NavigationItem.css';
 

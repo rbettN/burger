@@ -1,3 +1,9 @@
+/**
+ * This component is responsible for building the burger as per inputs from users.
+ * It defines the ingredients and the total price of the burger.
+ * This component is imported in the App component.
+ */
+
 import React, {Component} from 'react';
 import Aux from '../../highordercomponents/Auxiliary';
 import Burger from '../../components/Burger/Burger';

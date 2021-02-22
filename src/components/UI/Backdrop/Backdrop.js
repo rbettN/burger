@@ -1,3 +1,7 @@
+/**
+ * This Backdrop component is imported in both the SideDrawer and the Modal components.
+ **/
+
 import React from 'react';
 import classes from './Backdrop.css';
 
