@@ -1,3 +1,8 @@
+/**
+ * This is the Burger icon component of the React burger application.
+ * This component is imported in the SideDrawer and in the Toolbar
+ **/
+
 import React from 'react';
 import burgerLogo from '../../assets/images/burger-logo.png';
 import classes from './Logo.css';

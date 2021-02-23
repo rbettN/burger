@@ -1,3 +1,9 @@
+/**
+ * Component: Labels (Salad, Bacon, Cheese, and Meat) and Buttons (Less and More)
+ * for the Build Controls.
+ * This component is imported in the Build Controls.
+ */
+
 import React from 'react';
 import classes from './BuildControl.css';
 

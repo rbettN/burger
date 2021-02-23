@@ -1,3 +1,9 @@
+/**
+ * This component set the properties of both the "BurgerBuilder" and the "Checkout"
+ * menu option in the toolbar.
+ * This component is imported in the Layout.
+ **/
+
 import React from 'react';
 import classes from './NavigationItems.css';
 import NavigationItem from './NavigationItem/NavigationItem';

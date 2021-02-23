@@ -1,6 +1,8 @@
 /**
  * This the Layout component of the React burger application
- */
+ * It is composed by the Toolbar and the SideDrawer.
+ * This component is imported in the App component.
+ **/
 
 
 import React, { Component } from 'react';

@@ -1,3 +1,8 @@
+/**
+ * Component: Creates and presents the burger based on the ingredients selected. 
+ * This component is imported in the BurgerBuilder.
+ */
+
 import React from 'react';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
@@ -18,8 +23,7 @@ const burger = (props) => {
     if (transformedIngredients.length === 0) {
         transformedIngredients = <p>Please, add the ingredients.</p>
     }
-    
-    console.log(transformedIngredients);
+
     return (
         <div className={classes.Burger}>
             <BurgerIngredient type="bread-top"/>

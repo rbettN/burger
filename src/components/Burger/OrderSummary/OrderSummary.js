@@ -1,30 +1,40 @@
-import React from 'react';
+/**
+ * Component: Summary of the order (press Order Now)
+ * This component is imported in the BurgerBuilder.
+ */
+
+import React, { Component } from 'react';
 import Auxiliary from '../../../highordercomponents/Auxiliary';
 import Button from '../../UI/Button/Button';
 
+class OrderSummary extends Component {
+    
+    componentDidUpdate () {
+        console.log('[OrderSummary] WillUpdate');
+    }
 
-const orderSummary = (props) => {
-    const ingredientsSummary = Object.keys(props.ingredients)
+    render () {
+        const ingredientsSummary = Object.keys(this.props.ingredients)
         .map(ingredientKey => {
             return (
                 <li key={ingredientKey}>
-                    <span style={{textTransform: 'capitalize'}}>{ingredientKey}</span>: {props.ingredients[ingredientKey]}
+                    <span style={{textTransform: 'capitalize'}}>{ingredientKey}</span>: {this.props.ingredients[ingredientKey]}
                 </li>);
         });
-            
-    return (
-        <Auxiliary>
-            <h3>Your Order</h3>
-            <p>A burger with the ingredients:</p>
-            <ul>
-                {ingredientsSummary}
-            </ul>
-            <p><strong>Total Price: ${props.price.toFixed(2)} CAD</strong></p>
-            <p>Continue to Checkout?</p>
-            <Button buttonType="Danger" clicked={props.purchaseCancelled}>Cancel</Button>
-            <Button buttonType="Danger" clicked={props.purchaseContinued}>Contiune</Button>
-        </Auxiliary>
-    );
-};
+        return (
+            <Auxiliary>
+                <h3>Your Order</h3>
+                <p>A burger with the ingredients:</p>
+                <ul>
+                    {ingredientsSummary}
+                </ul>
+                <p><strong>Total Price: ${this.props.price.toFixed(2)} CAD</strong></p>
+                <p>Continue to Checkout?</p>
+                <Button buttonType="Danger" clicked={this.props.purchaseCancelled}>Cancel</Button>
+                <Button buttonType="Danger" clicked={this.props.purchaseContinued}>Continue</Button>
+            </Auxiliary>
+        );
+    }
+}
 
-export default orderSummary;
+export default OrderSummary;
