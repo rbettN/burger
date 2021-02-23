@@ -7,10 +7,14 @@ import React, { Component } from 'react';
 import Auxiliary from '../../../highordercomponents/Auxiliary';
 import Button from '../../UI/Button/Button';
 
+class OrderSummary extends Component {
+    
+    componentDidUpdate () {
+        console.log('[OrderSummary] WillUpdate');
+    }
 
-class OrderSummary extends Components {
     render () {
-        const ingredientsSummary = Object.keys(props.ingredients)
+        const ingredientsSummary = Object.keys(this.props.ingredients)
         .map(ingredientKey => {
             return (
                 <li key={ingredientKey}>
@@ -31,7 +35,6 @@ class OrderSummary extends Components {
             </Auxiliary>
         );
     }
-
 }
 
 export default OrderSummary;
