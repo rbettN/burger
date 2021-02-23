@@ -4,11 +4,11 @@
  */
 
 import React, { Component } from 'react';
-import Auxiliary from '../../../highordercomponents/Auxiliary';
+import Auxiliary from '../../../highordercomponents/Auxiliary/Auxiliary';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
-    
+
     componentDidUpdate () {
         console.log('[OrderSummary] WillUpdate');
     }
