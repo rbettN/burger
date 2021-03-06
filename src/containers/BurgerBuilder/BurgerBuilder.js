@@ -5,7 +5,7 @@
  */
 
 import React, {Component} from 'react';
-import Aux from '../../highordercomponents/Auxiliary/Auxiliary';
+import Auxiliary from '../../highordercomponents/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -25,16 +25,22 @@ class BurgerBuilder extends Component {
 
     state = {
         /*The properties of this 'ingredients' object must match the 'props.type' that is checked in 'BurgerIngredient.js'*/
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0
-        },
+        ingredients: null,
         totalPrice: 4,
         purchasable: false,
         purchasing: false,
-        loading: false
+        loading: false,
+        error: false
+    }
+
+    componentDidMount () {
+        axios.get('https://burgerreact-rbettn-default-rtdb.firebaseio.com/ingredients.json')
+            .then(response => {
+                this.setState({ingredients: response.data});
+            })
+            .catch(error => {
+                this.setState({error: true});
+            });
     }
 
     addIngredientHandler = (type) => {
@@ -89,7 +95,6 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        //alert('You continue!');
         this.setState({loading: true});
         const order = {
             updatedIngredients: this.state.ingredients,
@@ -119,22 +124,22 @@ class BurgerBuilder extends Component {
         const disabledInfo = {
             ...this.state.ingredients
         };
+
         for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0; /*It assigns True or False to disabledInfo[key];*/
         }
-        let orderSummary = <OrderSummary 
-            ingredients={this.state.ingredients}
-            purchaseCancelled={this.purchaseCancelHandler}
-            purchaseContinued={this.purchaseContinueHandler}
-            price={this.state.totalPrice}/>;
-        if (this.state.loading) {
-            orderSummary = <Spinner />;
-        }
-        return (
-            <Aux>
-                <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
-                    {orderSummary}
-                </Modal>
+
+        let orderSummary = null;
+        
+        /*Display a friendly message of the error occurred to the user in case an error occurs
+        to retrieve the Ingredients from Firebase*/
+        let burger = this.state.error ? <p>Ingredients can't be loaded. Please, contact the technical support.</p> : <Spinner/>;
+
+        /*Fetch ingredients from Firebase. If ingredients are not null, display ingredients in the Burger and in
+        the order summary. If ingredients are null, display the Spinner component*/
+        if (this.state.ingredients) {
+            burger = (
+                <Auxiliary>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
                     ingredientAdded={this.addIngredientHandler}
@@ -143,7 +148,24 @@ class BurgerBuilder extends Component {
                     purchasable={this.state.purchasable}
                     ordered={this.purchaseHandler}
                     price={this.state.totalPrice}/>
-            </Aux>
+                </Auxiliary>
+            );
+            orderSummary = <OrderSummary 
+                ingredients={this.state.ingredients}
+                purchaseCancelled={this.purchaseCancelHandler}
+                purchaseContinued={this.purchaseContinueHandler}
+                price={this.state.totalPrice}/>;
+        }
+        if (this.state.loading) {
+            orderSummary = <Spinner />;
+        }
+        return (
+            <Auxiliary>
+                <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
+                    {orderSummary}
+                </Modal>
+                {burger}
+            </Auxiliary>
         );
     }
 }
