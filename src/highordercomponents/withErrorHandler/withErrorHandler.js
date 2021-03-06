@@ -1,3 +1,9 @@
+/**
+ * This high order component is responsible for handling errors when requesting and posting data
+ * to Firebase. It does so by using the Modal component.
+ * This component is used to wrap the BurgerBuilder to enhance it by adding the error handler.
+ */
+
 import React, {Component} from 'react';
 
 import Modal from '../../components/UI/Modal/Modal';
