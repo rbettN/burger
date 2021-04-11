@@ -34,13 +34,13 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount () {
-        axios.get('https://burgerreact-rbettn-default-rtdb.firebaseio.com/ingredients.json')
-            .then(response => {
-                this.setState({ingredients: response.data});
-            })
-            .catch(error => {
-                this.setState({error: true});
-            });
+        // axios.get('https://burgerreact-rbettn-default-rtdb.firebaseio.com/ingredients.json')
+        //     .then(response => {
+        //         this.setState({ingredients: response.data});
+        //     })
+        //     .catch(error => {
+        //         this.setState({error: true});
+        //     });
     }
 
     addIngredientHandler = (type) => {
