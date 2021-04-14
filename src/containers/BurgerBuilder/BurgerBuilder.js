@@ -23,7 +23,7 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount () {
-
+        this.props.onInitIngredients();
     }
 
     updatePurchaseState (updatedIngredients) {
@@ -64,7 +64,7 @@ class BurgerBuilder extends Component {
         
         /*Display a friendly message of the error occurred to the user in case an error occurs
         to retrieve the Ingredients from Firebase*/
-        let burger = this.state.error ? <p>Ingredients can't be loaded. Please, contact the technical support.</p> : <Spinner/>;
+        let burger = this.props.error ? <p>Ingredients can't be loaded. Please, contact the technical support.</p> : <Spinner/>;
 
         /*Fetch ingredients from Firebase. If ingredients are not null, display ingredients in the Burger and in
         the order summary. If ingredients are null, display the Spinner component*/
@@ -101,14 +101,16 @@ class BurgerBuilder extends Component {
 const mapStateToProps = state => {
     return {
         ings: state.ingredients,
-        price: state.totalPrice
+        price: state.totalPrice,
+        error: state.error
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdded: (ingName) => dispatch(burgerBuilderActions.addIngredient(ingName)),
-        onIngredientRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredient(ingName))
+        onIngredientRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredient(ingName)),
+        onInitIngredients: () => dispatch(burgerBuilderActions.initIngredients())
     };
 }
 
