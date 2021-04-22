@@ -43,9 +43,7 @@ class App extends Component {
       return (
         <div >
           <Layout>
-            <Switch>
               {routes}
-            </Switch>
           </Layout>
         </div>
       );
@@ -64,4 +62,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
