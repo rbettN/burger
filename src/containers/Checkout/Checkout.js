@@ -1,13 +1,11 @@
 /**
  * Component: This is a container for the CheckoutSummary, which is used in App.js.
  */
-
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
 import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
 
 class Checkout extends Component {
 

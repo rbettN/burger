@@ -2,17 +2,11 @@
  * Component: Summary of the order (press Order Now)
  * This component is imported in the BurgerBuilder.
  */
-
 import React, { Component } from 'react';
 import Auxiliary from '../../../highordercomponents/Auxiliary/Auxiliary';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
-
-    componentDidUpdate () {
-        console.log('[OrderSummary] WillUpdate');
-    }
-
     render () {
         const ingredientsSummary = Object.keys(this.props.ingredients)
         .map(ingredientKey => {
